@@ -3,6 +3,7 @@
 #include "fig.h"
 #include <GL/glut.h>
 #include <cmath>
+#include <cstdlib>
 
 const float scale=800;
 
@@ -69,6 +70,12 @@ void Poly::zoom(float k)
 void Poly::fillColor(float R,float G,float B)
 {
 	r=R;g=G;b=B;
+}
+
+void Poly::randomColor() {
+	r = rand() / RAND_MAX;
+	g = rand() / RAND_MAX;
+	b = rand() / RAND_MAX;
 }
 
 void Group::addFig(Poly &newFig)
