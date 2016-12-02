@@ -72,6 +72,25 @@ void Poly::fillColor(float R,float G,float B)
 	r=R;g=G;b=B;
 }
 
+float Poly::getR(){
+    return r;
+}
+
+float Poly::getG(){
+    return g;
+}
+
+float Poly::getB(){
+    return b;
+}
+
+void Poly::fillColor(Poly &tar) {
+    r = tar.getR();
+    g = tar.getG();
+    b = tar.getB();
+}
+
+
 void Poly::randomColor() {
 	r = (float)rand() / RAND_MAX;
 	g = (float)rand() / RAND_MAX;
