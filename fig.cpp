@@ -6,7 +6,7 @@
 
 const float scale=800;
 
-Polygon::Polygon(Vec a,float radius,bool isHalf)
+Poly::Poly(Vec a,float radius,bool isHalf)
 {
 	r=g=b=0;
 	anchor=a;
@@ -20,7 +20,7 @@ Polygon::Polygon(Vec a,float radius,bool isHalf)
 	}
 }
 
-Polygon::Polygon(vector <Vec> p)
+Poly::Poly(vector <Vec> p)
 {
 	r=g=b=0;
 	points=p;
@@ -31,7 +31,7 @@ Polygon::Polygon(vector <Vec> p)
 	anchor=anchor*(1/points.size());//Center
 }
 
-void Polygon::draw()
+void Poly::draw()
 {
 	int n=50;
 	glColor3f(r,g,b);
@@ -45,12 +45,12 @@ void Polygon::draw()
 	glEnd();
 }
 
-void Polygon::move(Vec dir)
+void Poly::move(Vec dir)
 {
 	anchor=anchor+dir;
 }
 
-void Polygon::rotate(float A)
+void Poly::rotate(float A)
 {
 	for(int i=0;i<points.size();++i)
 	{
@@ -58,7 +58,7 @@ void Polygon::rotate(float A)
 	}
 }
 
-void Polygon::zoom(float k)
+void Poly::zoom(float k)
 {
 	for(int i=0;i<points.size();++i)
 	{
@@ -66,12 +66,12 @@ void Polygon::zoom(float k)
 	}
 }
 
-void Polygon::fillColor(float R,float G,float B)
+void Poly::fillColor(float R,float G,float B)
 {
 	r=R;g=G;b=B;
 }
 
-void Group::addFig(Polygon &newFig)
+void Group::addFig(Poly &newFig)
 {
 	elem.push_back(newFig);
 	elem[elem.size()-1].setAnchor(anchor);
