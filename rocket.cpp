@@ -1,6 +1,6 @@
 #include "rocket.h"
 
-Rocket::Rocket(float _x, float _y) {
+Rocket::Rocket(float scale, float _x, float _y) {
     anchor = Vec(_x, _y);
 
     Poly head_tri( {Vec(0,1), Vec(0.4, 0.7), Vec(-0.4, 0.7)} );
@@ -31,7 +31,9 @@ Rocket::Rocket(float _x, float _y) {
     rightWindow.fillColor(leftWindow);
     elem.push_back(rightWindow);
 
-    Poly door( {Vec(0.1, 0.1), Vec(0.1, -0.1), Vec(-0.1, -0.1), Vec(-0.1, 0.1)} );
+    Poly door( {Vec(0.1, 0.2), Vec(0.1, -0.2), Vec(-0.1, -0.2), Vec(-0.1, 0.2)} );
     door.randomColor();
     elem.push_back(door);
+
+    zoom(scale);
 }

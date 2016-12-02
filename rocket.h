@@ -5,7 +5,7 @@
 
 class Rocket : public Group{
 public:
-    Rocket(float _x = 0.0, float _y = 0.0);
+    Rocket(float scale, float _x = 0.0, float _y = 0.0);
 };
 
 #endif //PARKING_LOT_ROCKET_H
