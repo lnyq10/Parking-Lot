@@ -84,7 +84,7 @@ float Poly::getB(){
     return b;
 }
 
-void Poly::fillcolor(Poly &tar) {
+void Poly::fillColor(Poly &tar) {
     r = tar.getR();
     g = tar.getG();
     b = tar.getB();
