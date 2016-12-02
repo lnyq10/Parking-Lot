@@ -20,7 +20,7 @@ Rocket::Rocket(float _x, float _y) {
     elem.push_back(leftWing);
 
     Poly rightWing( {Vec(0.4, -0.7), Vec(0.4, 0), Vec(0.6, -0.7)} );
-    rightWing.randomColor();
+    rightWing.fillColor(leftWing);
     elem.push_back(rightWing);
 
     Poly leftWindow( {Vec(-0.2, 0.3), Vec(-0.3, 0.3), Vec(-0.3, 0.4), Vec(-0.2, 0.4)} );
@@ -28,7 +28,7 @@ Rocket::Rocket(float _x, float _y) {
     elem.push_back(leftWindow);
 
     Poly rightWindow( {Vec(0.2, 0.3), Vec(0.3, 0.3), Vec(0.3, 0.4), Vec(0.2, 0.4)} );
-    rightWindow.randomColor();
+    rightWindow.fillColor(leftWindow);
     elem.push_back(rightWindow);
 
     Poly door( {Vec(0.1, 0.1), Vec(0.1, -0.1), Vec(-0.1, -0.1), Vec(-0.1, 0.1)} );
