@@ -37,3 +37,15 @@ Rocket::Rocket(float scale, float _x, float _y) {
 
     zoom(scale);
 }
+
+void Rocket::animate() {
+    if (relativeSize < 0.6) shrink = false;
+    if (relativeSize > 1) shrink = true;
+    if (shrink){
+        zoom(0.99);
+        relativeSize *= 0.99;
+    }else{
+        zoom(1.01);
+        relativeSize *= 1.01;
+    }
+}
