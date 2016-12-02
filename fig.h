@@ -4,6 +4,7 @@
 #include <GL/glut.h>
 #include <vector>
 #include <cmath>
+#include <iostream>
 using std::vector;
 
 const float PI=3.14159;
@@ -66,15 +67,15 @@ public:
 	virtual ~Figure() {}
 };
 
-class Polygon: public Figure
+class Poly: public Figure
 {
 private:
 	vector <Vec> points;
 	float r,g,b;
 public:
-	Polygon(Vec a,float radius,bool isHalf=false);//Circle(or half)
-	Polygon(vector <Vec> p);//Polygon
-	Polygon() {r=g=b=0;points.clear();}
+	Poly(Vec a,float radius,bool isHalf=false);//Circle(or half)
+	Poly(vector <Vec> p);//Poly
+	Poly() {r=g=b=0;points.clear();}
 
 	void draw();
 	void move(Vec dir);
@@ -82,17 +83,18 @@ public:
 	void zoom(float k);
 	void fillColor(float R,float G,float B);
 
-	~Polygon() {}
+	~Poly() {}
 };
 
 class Group : public Figure
 {
 protected:
-	vector <Polygon> elem;
+	vector <Poly> elem;
 public:
+	Group(vector <Poly> &p) {elem=p;}
 	Group() {elem.clear();}
 
-	void addFig(Polygon &newFig);
+	void addFig(Poly &newFig);
 	void draw();
 	void move(Vec dir);
 	void rotate(float A);
