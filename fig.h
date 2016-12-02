@@ -82,6 +82,7 @@ public:
 	void rotate(float A);
 	void zoom(float k);
 	void fillColor(float R,float G,float B);
+	void randomColor();
 
 	~Poly() {}
 };
