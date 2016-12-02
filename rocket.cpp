@@ -1,7 +1,7 @@
 #include "rocket.h"
 
 Rocket::Rocket(float scale, float _x, float _y) {
-    anchor = Vec(_x, _y);
+    anchor = Vec(0, 0);
 
     Poly head_tri( {Vec(0,1), Vec(0.4, 0.7), Vec(-0.4, 0.7)} );
     head_tri.randomColor();
@@ -36,6 +36,7 @@ Rocket::Rocket(float scale, float _x, float _y) {
     elem.push_back(door);
 
     zoom(scale);
+    move(Vec(_x, _y));
 }
 
 void Rocket::animate() {
