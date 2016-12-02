@@ -23,5 +23,8 @@ Car::Car(float x, float y) {
     Poly wheel_right(Vec(20/scale,-10/scale)+p0,10/scale, false);wheel_right.fillColor(0.2,0.1,0.9);
     elem.push_back(wheel_left);
     elem.push_back(wheel_right);
-
+    
+    for(int i=0;i<elem.size();i++){
+        elem[i].setAnchor(p0);
+    }
 }
