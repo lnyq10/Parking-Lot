@@ -48,6 +48,10 @@ void Poly::draw()
 
 void Poly::move(Vec dir)
 {
+	for(int i=0;i<points.size();++i)
+    {
+        points[i]=points[i]+dir;
+    }
 	anchor=anchor+dir;
 }
 
