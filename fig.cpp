@@ -73,9 +73,9 @@ void Poly::fillColor(float R,float G,float B)
 }
 
 void Poly::randomColor() {
-	r = rand() / RAND_MAX;
-	g = rand() / RAND_MAX;
-	b = rand() / RAND_MAX;
+	r = (float)rand() / RAND_MAX;
+	g = (float)rand() / RAND_MAX;
+	b = (float)rand() / RAND_MAX;
 }
 
 void Group::addFig(Poly &newFig)
