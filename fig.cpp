@@ -117,6 +117,7 @@ void Group::draw()
 
 void Group::move(Vec dir)
 {
+    anchor = anchor + dir;
 	for(int i=0;i<elem.size();++i)
 	{
 		elem[i].move(dir);
