@@ -12,7 +12,8 @@ void glDraw_car() {
     glClear(GL_COLOR_BUFFER_BIT);
     Car static mycar(0.5,0.5);
     mycar.move(Vec((float) -0.005, 0));
-    mycar.rotate(1);
+    //mycar.rotate(1);
+    mycar.rotate_wheel(0.1);
     mycar.draw();
     glutSwapBuffers();glFlush();
 }
