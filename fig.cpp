@@ -4,7 +4,6 @@
 #include <GL/glut.h>
 #include <cmath>
 #include <cstdlib>
-#include <iostream>
 
 const float scale=800;
 
