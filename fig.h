@@ -69,7 +69,7 @@ public:
 
 class Poly: public Figure
 {
-private:
+protected:
 	vector <Vec> points;
 	float r,g,b;
 public:
@@ -89,6 +89,12 @@ public:
     float getB();
 
 	~Poly() {}
+};
+
+class Line: public Poly{
+public:
+	Line(vector <Vec> p);
+	void draw();
 };
 
 class Group : public Figure

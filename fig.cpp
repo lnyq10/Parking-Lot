@@ -4,6 +4,7 @@
 #include <GL/glut.h>
 #include <cmath>
 #include <cstdlib>
+#include <iostream>
 
 const float scale=800;
 
@@ -99,6 +100,23 @@ void Poly::randomColor() {
 	r = (float)rand() / RAND_MAX;
 	g = (float)rand() / RAND_MAX;
 	b = (float)rand() / RAND_MAX;
+}
+
+Line::Line(vector<Vec> p) {
+	r=g=b=0;
+	points = p;
+}
+
+void Line::draw() {
+	glColor3f(r,g,b);
+	glBegin(GL_LINE_STRIP);//GL_LINE_LOOP
+	{
+		for(int i=0;i<points.size();++i)
+		{
+			glVertex2f(points[i].getX(),points[i].getY());
+		}
+	}
+	glEnd();
 }
 
 void Group::addFig(Poly &newFig)
