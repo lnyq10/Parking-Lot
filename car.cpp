@@ -1,6 +1,6 @@
 #include "car.h"
 
-Car::Car(float x, float y) {
+Car::Car(float x, float y,float angle) {
     Vec p0(x,y); //inital position
     static float scale=100;elem.clear();
     vector <Vec> _ceil;_ceil.clear();
@@ -62,8 +62,10 @@ Car::Car(float x, float y) {
     pool_4=&elem.back();
     
     for(int i=0;i<elem.size();i++){
-        elem[i].setAnchor(p0);
+         elem[i].setAnchor(p0);
+         elem[i].rotate(angle);
     }   
+    rotate_angle=angle;
 }
 
 void Car::rotate_wheel(float angle){
