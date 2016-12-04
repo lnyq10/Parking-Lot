@@ -6,10 +6,14 @@
 class Field : public Group{
 public:
     Field();
-    void switchDoor();
     void draw();
+    void open();
+    void close();
+    int getStatus();
 private:
     std::vector<Line> lines;
+    int status = 0;
+
 };
 
 #endif //PARKING_LOT_FIELD_H

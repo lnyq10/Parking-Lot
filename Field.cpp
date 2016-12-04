@@ -3,6 +3,7 @@
 Field::Field() {
     Line door({Vec(-0.95, -0.99), Vec(-0.75, -0.99)});
     door.fillColor(1,0,0);
+    door.setAnchor(Vec(-0.75, -0.99));
     lines.push_back(door);
 
     Line wall({Vec(-0.75, -0.99), Vec(-0.75, -0.8), Vec(0.99, -0.8), Vec(0.99, 0.99), Vec(-0.99, 0.99), Vec(-0.99, -0.99)});
@@ -33,4 +34,18 @@ void Field::draw() {
     for (int i = 0; i < elem.size(); ++i){
         elem[i].draw();
     }
+}
+
+void Field::open() {
+    ++status;
+    lines[0].rotate(-PI/2/90);
+}
+
+void Field::close() {
+    --status;
+    lines[0].rotate(PI/2/90);
+}
+
+int Field::getStatus() {
+    return status;
 }
