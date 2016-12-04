@@ -85,3 +85,10 @@ void Car::rotate_wheel(float angle){
     pool_4->setAnchor(Vec(x0,y0));
 }
 
+void Car::rotate(float A){
+    for(int i=0;i<elem.size();++i)
+    {
+        elem[i].rotate(A);
+    }
+    rotate_angle+=A;
+}
