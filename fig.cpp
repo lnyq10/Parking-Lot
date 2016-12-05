@@ -1,6 +1,6 @@
 //g++ part2.cpp fig.h fig.cpp -lGL -lGLU -lglut
 
-#include <windows.h>
+//#include <windows.h>
 #include "fig.h"
 #include <GL/glut.h>
 #include <cmath>
@@ -48,6 +48,13 @@ void Poly::move(Vec dir)
         points[i]=points[i]+dir;
     }
 	anchor=anchor+dir;
+}
+
+void Poly::rotate(float A) {
+	for(int i=0;i<points.size();++i)
+	{
+		points[i]=((points[i]-anchor)<<A)+anchor;
+	}
 }
 
 void Poly::rotate(float A,Vec c)
@@ -127,6 +134,14 @@ void Group::move(Vec dir)
 	for(int i=0;i<elem.size();++i)
 	{
 		elem[i].move(dir);
+	}
+}
+
+void Group::rotate(float A)
+{
+	for(int i=0;i<elem.size();++i)
+	{
+		elem[i].rotate(A);
 	}
 }
 

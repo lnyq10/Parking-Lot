@@ -60,6 +60,7 @@ public:
 	void setAnchor(Vec a) {anchor=a;}
 	virtual void draw()=0;
 	virtual void move(Vec dir)=0;
+	virtual void rotate(float A)=0;
 	virtual void rotate(float A,Vec c)=0;
 	virtual void zoom(float k)=0;
 
@@ -78,6 +79,7 @@ public:
 
 	void draw();
 	void move(Vec dir);
+	void rotate(float A);
 	void rotate(float A,Vec c);
 	void zoom(float k);
 	void fillColor(float R,float G,float B);
@@ -106,6 +108,7 @@ public:
 
 	void draw();
 	void move(Vec dir);
+	void rotate(float A);
 	void rotate(float A,Vec c);
 	void zoom(float k);
 
