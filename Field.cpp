@@ -24,7 +24,18 @@ Field::Field() {
     barrier.randomColor();
     elem.push_back(barrier);
 
-
+ 
+    for(int i=0;i<2;i++){
+        for(int j=0;j<7;j++){
+            IsEmpty[i][j]= true;
+        }
+    }
+    IsEmpty[2][0]= false;
+    location_2.push_back(Vec((float)-0.86,(float)0.84));// the second floor has an extra slot
+    for(int i=0;i<6;i++){
+        location_2.push_back(Vec(-0.59+0.3*i,0.84));//the second floor
+        location_1.push_back(Vec(-0.59+0.3*i,-0.64));//the first floor
+    }
 }
 
 void Field::draw() {
