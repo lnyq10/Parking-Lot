@@ -1,5 +1,6 @@
 //g++ part2.cpp fig.h fig.cpp -lGL -lGLU -lglut
 
+#include <windows.h>
 #include "fig.h"
 #include <GL/glut.h>
 #include <cmath>
@@ -25,16 +26,10 @@ Poly::Poly(vector <Vec> p)
 {
 	r=g=b=0;
 	points=p;
-	for(int i=0;i<points.size();++i)
-	{
-		anchor=anchor+points[i];
-	}
-	anchor=anchor*(1/points.size());//Center
 }
 
 void Poly::draw()
 {
-	int n=50;
 	glColor3f(r,g,b);
 	glBegin(GL_POLYGON);//GL_LINE_LOOP
 	{
@@ -55,11 +50,11 @@ void Poly::move(Vec dir)
 	anchor=anchor+dir;
 }
 
-void Poly::rotate(float A)
+void Poly::rotate(float A,Vec c)
 {
 	for(int i=0;i<points.size();++i)
 	{
-		points[i]=((points[i]-anchor)<<A)+anchor;
+		points[i]=((points[i]-c)<<A)+c;
 	}
 }
 
@@ -95,7 +90,7 @@ void Poly::fillColor(Poly &tar) {
 }
 
 
-void Poly::randomColor() {
+void Poly::randomColor() { 
 	r = (float)rand() / RAND_MAX;
 	g = (float)rand() / RAND_MAX;
 	b = (float)rand() / RAND_MAX;
@@ -118,12 +113,6 @@ void Line::draw() {
 	glEnd();
 }
 
-void Group::addFig(Poly &newFig)
-{
-	elem.push_back(newFig);
-	elem[elem.size()-1].setAnchor(anchor);
-}
-
 void Group::draw()
 {
 	for(int i=0;i<elem.size();++i)
@@ -141,11 +130,11 @@ void Group::move(Vec dir)
 	}
 }
 
-void Group::rotate(float A)
+void Group::rotate(float A,Vec c)
 {
 	for(int i=0;i<elem.size();++i)
 	{
-		elem[i].rotate(A);
+		elem[i].rotate(A,c);
 	}
 }
 
