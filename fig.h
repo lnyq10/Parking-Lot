@@ -4,7 +4,6 @@
 #include <GL/glut.h>
 #include <vector>
 #include <cmath>
-#include <iostream>
 using std::vector;
 
 const float PI=3.14159;
@@ -61,7 +60,7 @@ public:
 	void setAnchor(Vec a) {anchor=a;}
 	virtual void draw()=0;
 	virtual void move(Vec dir)=0;
-	virtual void rotate(float A)=0;
+	virtual void rotate(float A,Vec c)=0;
 	virtual void zoom(float k)=0;
 
 	virtual ~Figure() {}
@@ -79,7 +78,7 @@ public:
 
 	void draw();
 	void move(Vec dir);
-	void rotate(float A);
+	void rotate(float A,Vec c);
 	void zoom(float k);
 	void fillColor(float R,float G,float B);
     void fillColor(Poly &tar);
@@ -105,10 +104,9 @@ public:
 	Group(vector <Poly> &p) {elem=p;}
 	Group() {elem.clear();}
 
-	void addFig(Poly &newFig);
 	void draw();
 	void move(Vec dir);
-	void rotate(float A);
+	void rotate(float A,Vec c);
 	void zoom(float k);
 
 	~Group() {}
