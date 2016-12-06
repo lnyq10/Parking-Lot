@@ -68,7 +68,7 @@ Car::Car(float x, float y,float angle) {
     rotate_angle=angle;
 }
 
-void Car::rotate_wheel(float angle){
+float Car::rotate_wheel(float angle){
     static float scale=250;
     Vec anc=elem[0].getAnchor();
     Vec left(-20/scale,-10/scale);Vec right(20/scale,-10/scale);
@@ -79,7 +79,7 @@ void Car::rotate_wheel(float angle){
     pool_4->rotate(angle,anc+right);
 }
 
-void Car::rotate(float A){
+float Car::rotate(float A){
     for(int i=0;i<elem.size();++i)
     {
         elem[i].rotate(A);
