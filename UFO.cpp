@@ -2,7 +2,7 @@
 
 UFO::UFO(float scale, float x_, float y_)
 {
-	anchor=Vec(x_,y_);
+	anchor=Vec(0,0);
 
 	vector <Vec> p;
 
@@ -31,14 +31,16 @@ UFO::UFO(float scale, float x_, float y_)
 
 	p.clear();
 	p.push_back(Vec(-0.1414,0.1414));
-	p.push_back(Vec(-0.1414-0.006,0.1414+0.006));
+	p.push_back(Vec(-0.2,0.2));
+	p.push_back(Vec(-0.14,0.12));
 	Poly Aerial_left(p);
 	Aerial_left.randomColor();
 	Aerial_left.setAnchor(anchor);
 
 	p.clear();
 	p.push_back(Vec(0.1414,0.1414));
-	p.push_back(Vec(0.1414+0.006,0.1414+0.006));
+	p.push_back(Vec(0.2,0.2));
+	p.push_back(Vec(0.14,0.12));
 	Poly Aerial_right(p);
 	Aerial_right.fillColor(Aerial_left);
 	Aerial_right.setAnchor(anchor);
@@ -50,6 +52,7 @@ UFO::UFO(float scale, float x_, float y_)
 	elem.push_back(Aerial_right);
 
 	zoom(scale);
+	move(Vec(x_,y_));
 }
 
 void UFO::self_spin(float T)

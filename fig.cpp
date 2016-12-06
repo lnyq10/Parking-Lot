@@ -1,6 +1,4 @@
-//g++ part2.cpp fig.h fig.cpp -lGL -lGLU -lglut
-
-//#include <windows.h>
+#include <windows.h>
 #include "fig.h"
 #include <GL/glut.h>
 #include <cmath>
@@ -41,28 +39,31 @@ void Poly::draw()
 	glEnd();
 }
 
-void Poly::move(Vec dir)
+float Poly::move(Vec dir)
 {
 	for(int i=0;i<points.size();++i)
     {
         points[i]=points[i]+dir;
     }
 	anchor=anchor+dir;
+	return dir.getM();
 }
 
-void Poly::rotate(float A) {
+float Poly::rotate(float A) {
 	for(int i=0;i<points.size();++i)
 	{
 		points[i]=((points[i]-anchor)<<A)+anchor;
 	}
+	return 0;
 }
 
-void Poly::rotate(float A,Vec c)
+float Poly::rotate(float A,Vec c)
 {
 	for(int i=0;i<points.size();++i)
 	{
 		points[i]=((points[i]-c)<<A)+c;
 	}
+	return fabs(A)*(anchor-c).getM();
 }
 
 void Poly::zoom(float k)
@@ -128,29 +129,32 @@ void Group::draw()
 	}
 }
 
-void Group::move(Vec dir)
+float Group::move(Vec dir)
 {
     anchor = anchor + dir;
 	for(int i=0;i<elem.size();++i)
 	{
 		elem[i].move(dir);
 	}
+	return dir.getM();
 }
 
-void Group::rotate(float A)
+float Group::rotate(float A)
 {
 	for(int i=0;i<elem.size();++i)
 	{
 		elem[i].rotate(A);
 	}
+	return 0;
 }
 
-void Group::rotate(float A,Vec c)
+float Group::rotate(float A,Vec c)
 {
 	for(int i=0;i<elem.size();++i)
 	{
 		elem[i].rotate(A,c);
 	}
+	return fabs(A)*(anchor-c).getM();
 }
 
 void Group::zoom(float k)

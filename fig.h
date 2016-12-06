@@ -1,6 +1,7 @@
 #ifndef _FIG_H
 #define _FIG_H
 
+#include <windows.h>
 #include <GL/glut.h>
 #include <vector>
 #include <cmath>
@@ -16,6 +17,7 @@ public:
 	Vec(float x_,float y_){x=x_;y=y_;}
 	float getX(){return x;}
 	float getY(){return y;}
+	float getM(){return sqrt(x*x+y*y);}
 
 	Vec operator + (Vec &v)
 	{
@@ -59,9 +61,9 @@ public:
 	Vec getAnchor() {return anchor;}
 	void setAnchor(Vec a) {anchor=a;}
 	virtual void draw()=0;
-	virtual void move(Vec dir)=0;
-	virtual void rotate(float A)=0;
-	virtual void rotate(float A,Vec c)=0;
+	virtual float move(Vec dir)=0;
+	virtual float rotate(float A)=0;
+	virtual float rotate(float A,Vec c)=0;
 	virtual void zoom(float k)=0;
 
 	virtual ~Figure() {}
@@ -78,9 +80,9 @@ public:
 	Poly() {r=g=b=0;points.clear();}
 
 	void draw();
-	void move(Vec dir);
-	void rotate(float A);
-	void rotate(float A,Vec c);
+	float move(Vec dir);
+	float rotate(float A);
+	float rotate(float A,Vec c);
 	void zoom(float k);
 	void fillColor(float R,float G,float B);
     void fillColor(Poly &tar);
@@ -107,9 +109,9 @@ public:
 	Group() {elem.clear();}
 
 	void draw();
-	void move(Vec dir);
-	void rotate(float A);
-	void rotate(float A,Vec c);
+	float move(Vec dir);
+	float rotate(float A);
+	float rotate(float A,Vec c);
 	void zoom(float k);
 
 	~Group() {}

@@ -5,6 +5,9 @@
 #include <cmath>
 #include "fig.h"
 #include "UFO.h"
+#include "rocket.h"
+#include "Field.h"
+#include <cstdio>
 
 void TimeStep(int n)
 {
@@ -22,14 +25,25 @@ void display_main(void)
 {	
 	srand(time(NULL));
 	glClear(GL_COLOR_BUFFER_BIT);
-	
-	UFO static aha(1);
+	float static dist=0;
 
-	aha.self_spin(2000);
+	Field static a;
+	Rocket static r(0.25,0.5,0.5);
+	UFO static aha(0.4,-0.87,-0.66);
+	a.draw();
+
+	r.animate();
+	r.draw();
+
+	aha.self_spin(1500);
+	dist+=aha.move(Vec(0,0.01));
 	aha.draw();
 
 	glutSwapBuffers();
 	glFlush();
+
+	if(fabs(dist-0.8)<0.01)getchar();
+	if(fabs(dist-1.18)<0.01)getchar();
 }
 
 int main(int argc, char *argv[])
@@ -45,3 +59,5 @@ int main(int argc, char *argv[])
 	glutMainLoop();
 	return 0;
 } 
+
+//g++ SampleUFO.cpp UFO.cpp fig.cpp -o UFO -lglu32 -lglut32 -lopengl32
