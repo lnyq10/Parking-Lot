@@ -2,7 +2,7 @@
 
 Car::Car(float x, float y,float angle) {
     Vec p0(x,y); //inital position
-    static float scale=100;elem.clear();
+    static float scale=250;elem.clear();
     vector <Vec> _ceil;_ceil.clear();
     _ceil.push_back(Vec(-22/scale,10/scale)+p0);
     _ceil.push_back(Vec(-10/scale,27/scale)+p0);
@@ -68,24 +68,18 @@ Car::Car(float x, float y,float angle) {
     rotate_angle=angle;
 }
 
-void Car::rotate_wheel(float angle){
-    static float scale=100;
-    float x0=elem[0].getAnchor().getX();float y0=elem[0].getAnchor().getY();
-    pool_1->setAnchor(Vec(-20/scale+x0,-10/scale+y0));
-    pool_2->setAnchor(Vec(-20/scale+x0,-10/scale+y0));
-    pool_3->setAnchor(Vec(20/scale+x0,-10/scale+y0));
-    pool_4->setAnchor(Vec(20/scale+x0,-10/scale+y0));
-    pool_1->rotate(angle);
-    pool_2->rotate(angle);
-    pool_3->rotate(angle);
-    pool_4->rotate(angle);
-    pool_1->setAnchor(Vec(x0,y0));
-    pool_2->setAnchor(Vec(x0,y0));
-    pool_3->setAnchor(Vec(x0,y0));
-    pool_4->setAnchor(Vec(x0,y0));
+float Car::rotate_wheel(float angle){
+    static float scale=250;
+    Vec anc=elem[0].getAnchor();
+    Vec left(-20/scale,-10/scale);Vec right(20/scale,-10/scale);
+    left=left<<rotate_angle;right=right<<rotate_angle;
+    pool_1->rotate(angle,anc+left);
+    pool_2->rotate(angle,anc+left);
+    pool_3->rotate(angle,anc+right);
+    pool_4->rotate(angle,anc+right);
 }
 
-void Car::rotate(float A){
+float Car::rotate(float A){
     for(int i=0;i<elem.size();++i)
     {
         elem[i].rotate(A);
