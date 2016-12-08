@@ -59,3 +59,20 @@ void UFO::self_spin(float T)
 {
 	rotate(50*PI/T,anchor);//The time chump is 25ms
 }
+
+Tel::Tel(float x, float y){
+    Vec p0(x,y);
+    static float scale=150;
+    vector <Vec> p;p.clear();
+    p.push_back(Vec(15/scale,20/scale));
+    p.push_back(Vec(-15/scale,20/scale));
+    p.push_back(Vec(-15/scale,-20/scale));
+    p.push_back(Vec(15/scale,-20/scale));
+
+    elem.push_back(p);elem[0].randomColor();
+    move(p0);
+}
+
+void Tel::random_color()  {
+    elem[0].randomColor();
+}
