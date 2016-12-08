@@ -73,6 +73,7 @@ void display_main(void)
         {
             ufo[i]=new UFO(0.4,pos[order[i]].getX(),pos[order[i]].getY());
             rocket[i]=new Rocket(0.13,pos[order[i+2]].getX(),pos[order[i+2]].getY());
+            if (order[i+2] >= 5) rocket[i]->rotate(PI);
             car[i]=new Car(0.7,pos[order[i+4]].getX(),pos[order[i+4]].getY());
         }
 
