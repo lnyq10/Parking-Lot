@@ -13,10 +13,6 @@ public:
 private:
     std::vector<Line> lines;
     int status = 0;
-    bool IsEmpty[2][7];
-    vector <Vec> location_1;
-    vector <Vec> location_2;
-
 };
 
 #endif //PARKING_LOT_FIELD_H
