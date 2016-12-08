@@ -10,4 +10,10 @@ public:
     void self_spin(float T);//Period(ms)
 };
 
+class Tel: public  Group{
+public:
+    Tel(float x, float y);
+    Tel(){}
+    void random_color();
+};
 #endif //PARKING_LOT_UFO_H
