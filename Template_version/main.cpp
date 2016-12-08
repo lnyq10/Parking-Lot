@@ -75,6 +75,7 @@ void display_main(void)
             rocket[i]=new Rocket(0.13,pos[order[i+2]].getX(),pos[order[i+2]].getY());
             if (order[i+2] >= 5) rocket[i]->rotate(PI);
             car[i]=new Car(0.7,pos[order[i+4]].getX(),pos[order[i+4]].getY());
+            if (order[i+4] >= 5) car[i]->rotate(PI,car[i]->getAnchor());
         }
 
 
