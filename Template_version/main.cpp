@@ -57,8 +57,8 @@ void display_main(void)
     Tel colorfig(1);
 
     //UFO static obj(0.4,-0.87,-0.66);
-    //Car static obj(0.7,-0.87,-0.66);
-    Rocket static obj(0.13,-0.87,-0.66);
+    Car static obj(0.7,-0.87,-0.66);
+    //Rocket static obj(0.13,-0.87,-0.66);
 
     if(pos.empty())
     {
