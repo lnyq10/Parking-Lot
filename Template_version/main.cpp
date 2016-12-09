@@ -59,7 +59,7 @@ void display_main(void)
         {
             vehicle[i]=new UFO(0.4,pos[order[i]].getX(),pos[order[i]].getY());
             vehicle[i+2]=new Rocket(0.13,pos[order[i+2]].getX(),pos[order[i+2]].getY());
-            if (order[i+2] >= 5) vehicle[i]->rotate(PI);
+            if (order[i+2] >= 5) vehicle[i+2]->rotate(PI);
             vehicle[i+4]=new Car(0.7,pos[order[i+4]].getX(),pos[order[i+4]].getY());
             if (order[i+4] >= 5) vehicle[i+4]->rotate(PI,vehicle[i+4]->getAnchor());
         }
