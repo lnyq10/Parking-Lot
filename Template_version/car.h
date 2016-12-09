@@ -11,7 +11,7 @@ private:
     Poly *pool_1, *pool_2, *pool_3, *pool_4;
 public: 
     Car(float s,float x,float y);
-    float animate(float A=-0.3);
+    void animate();
     ~Car(){}
 };
 

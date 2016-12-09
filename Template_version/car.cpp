@@ -91,8 +91,9 @@ Car::Car(float s, float x, float y)
     rotate(PI/2,anchor);
 }
 
-float Car::animate(float A)
+void Car::animate()
 {
+    float A=-0.3;
     pool_1->rotate(A);
     pool_2->rotate(A);
     pool_3->rotate(A);

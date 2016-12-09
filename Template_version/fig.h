@@ -114,6 +114,7 @@ public:
 	float rotate(float A);
 	float rotate(float A,Vec c);
 	void zoom(float k);
+	virtual void animate() {}
 
 	~Group() {}
 };

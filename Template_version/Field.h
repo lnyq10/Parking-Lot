@@ -9,6 +9,7 @@ public:
     void draw();
     void open();
     void close();
+    void animate() {}
     int getStatus();
 private:
     std::vector<Line> lines;

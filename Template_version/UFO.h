@@ -7,7 +7,7 @@ class UFO : public Group
 {
 public:
     UFO(float scale, float x_ = 0.0, float y_ = 0.0);
-    void animate(float T=600);//Period(ms)
+    void animate();//Period(ms)
 };
 
 class Tel: public Poly

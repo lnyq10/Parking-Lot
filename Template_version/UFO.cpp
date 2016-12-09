@@ -55,8 +55,9 @@ UFO::UFO(float scale, float x_, float y_)
 	move(Vec(x_,y_));
 }
 
-void UFO::animate(float T)
+void UFO::animate()
 {
+	float T=600;
 	rotate(50*PI/T,anchor);//The time chump is 25ms
 }
 
