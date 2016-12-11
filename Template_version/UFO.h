@@ -13,7 +13,7 @@ public:
 class Tel: public Poly
 {
 public:
-    Tel(float s);
+    Tel(float s, int side);
     Tel(){}
     ~Tel(){}
 };
