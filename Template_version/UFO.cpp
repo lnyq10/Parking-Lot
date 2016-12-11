@@ -62,14 +62,17 @@ void UFO::animate()
 }
 
 
-Tel::Tel(float s)
+Tel::Tel(float s, int side)
 {
     anchor=Vec(0,0);
     static float scale=150;
-    points.push_back(Vec(15/scale,20/scale));
+	/*points.push_back(Vec(15/scale,20/scale));
     points.push_back(Vec(-15/scale,20/scale));
     points.push_back(Vec(-15/scale,-20/scale));
-    points.push_back(Vec(15/scale,-20/scale));
+    points.push_back(Vec(15/scale,-20/scale));*/
+	for (int i = 0; i < side; ++i){
+		points.push_back(Vec(0.1*cos(2*PI/side*i),0.1*sin(2*PI/side*i)));
+	}
 
     randomColor();
 }

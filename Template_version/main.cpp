@@ -43,7 +43,7 @@ void display_main(void)
     float static dist=0;
     Field static p_lot;
     Vec static target(0,0);
-    Tel colorfig(1);
+    Tel colorfig(1,rand()%10+3);
 
     
     if(pos.empty())
